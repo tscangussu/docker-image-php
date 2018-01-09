@@ -16,8 +16,8 @@ RUN apk add --no-cache --virtual .php-packages \
   php7-openssl \
   php7-zlib
 
-COPY files/fpm_zzz-docker.conf /etc/php7/php-fpm.d/
-COPY files/php_40_docker.ini /etc/php7/conf.d/
+COPY files/fpm_zzz-docker.conf /etc/php7/php-fpm.d/zzz-docker.conf
+COPY files/php_40_docker.ini /etc/php7/conf.d/40_docker.ini
 COPY files/docker-php-entrypoint /usr/local/bin/
 
 ENTRYPOINT ["docker-php-entrypoint"]
