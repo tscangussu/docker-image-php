@@ -37,7 +37,8 @@ COPY files/fpm_zzz-docker.conf /etc/php/${PHP_VERSION}/fpm/pool.d/zzz-docker.con
 COPY files/php_40_docker.ini /etc/php/${PHP_VERSION}/mods-available/40_docker.ini
 COPY files/docker-php-entrypoint /usr/local/bin/
 
-RUN ln -s /etc/php/${PHP_VERSION}/mods-available/40_docker.ini /etc/php/${PHP_VERSION}/cli/conf.d/40_docker.ini; \
+RUN mkdir -p /var/run/php; \
+		ln -s /etc/php/${PHP_VERSION}/mods-available/40_docker.ini /etc/php/${PHP_VERSION}/cli/conf.d/40_docker.ini; \
 		ln -s /etc/php/${PHP_VERSION}/mods-available/40_docker.ini /etc/php/${PHP_VERSION}/fpm/conf.d/40_docker.ini; \
 		chmod +x /usr/local/bin/docker-php-entrypoint
 
@@ -45,4 +46,4 @@ ENTRYPOINT ["docker-php-entrypoint"]
 
 EXPOSE 9000
 
-CMD ["php-fpm7"]
+CMD ["php-fpm7.1"]
