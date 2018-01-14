@@ -5,7 +5,7 @@ NAMESPACE = dockium
 # PHP version
 VERSION = 7.1.13
 # Docker image revision
-REVISION = 1
+REVISION = 2
 
 # Build steps
 all: debian

@@ -28,9 +28,10 @@ RUN apt-get update; \
 			php${PHP_VERSION}-cli \
 		  php${PHP_VERSION}-curl \
 		  php${PHP_VERSION}-fpm \
-		  php${PHP_VERSION}-mbstring \
-		  php${PHP_VERSION}-mysql \
-		  php${PHP_VERSION}-zip; \
+			php${PHP_VERSION}-json \
+			php${PHP_VERSION}-mbstring \
+			php${PHP_VERSION}-opcache \
+			php${PHP_VERSION}-readline; \
 		rm -rf /var/lib/apt/lists/*
 
 COPY files/fpm_zzz-docker.conf /etc/php/${PHP_VERSION}/fpm/pool.d/zzz-docker.conf
